@@ -21,7 +21,7 @@ export const Code = ({
   else if (language === "ts" || language === "tsx") language = "typescript";
   else if (language === "py") language = "python";
 
-  function debounce(func: (value: string) => void, wait: number) {
+  function debounce(func: (value: string | undefined) => void, wait: number) {
     let timeout: number;
     return (value: string) => {
       clearTimeout(timeout);
@@ -30,6 +30,13 @@ export const Code = ({
       }, wait);
     };
   }
+
+  const handleChange = debounce((code: string | undefined) => {
+    socket.emit("updateContent", {
+      path: selectedFile.path,
+      content: code,
+    });
+  }, 500);
 
   // const handleChange = debounce((newCode: any) => {
   //   // const previousCode = code;
@@ -58,13 +65,11 @@ export const Code = ({
       language={language}
       value={code}
       theme="vs-dark"
-      onChange={debounce((value) => {
-        // Should send diffs, for now sending the whole file
-        socket.emit("updateContent", {
-          path: selectedFile.path,
-          content: value,
-        });
-      }, 500)}
+      onChange={(val) => {
+        if (val != undefined) {
+          handleChange(val);
+        }
+      }}
     />
   );
 
