@@ -19,7 +19,7 @@ const SLUG_WORKS = [
   "open",
   "source",
 ];
-const SERVICE_URL = "http://139.84.147.97";
+const SERVICE_URL = "https://droplet.kubertestingayush.xyz";
 
 /** Styled components */
 const Container = styled.div`

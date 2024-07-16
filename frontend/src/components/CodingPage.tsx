@@ -60,7 +60,7 @@ export const CodingPage = () => {
   useEffect(() => {
     if (replId) {
       axios
-        .post(`http://139.84.147.97/start`, { replId })
+        .post(`https://droplet.kubertestingayush.xyz/start`, { replId })
         .then(() => setPodCreated(true))
         .catch((err) => console.error(err));
     }
