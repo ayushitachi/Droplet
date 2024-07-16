@@ -27,10 +27,34 @@ kind: Service
 metadata:
   name: orchestrator-service
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: orchestrator
   ports:
     - protocol: TCP
       port: 80
       targetPort: 3000
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: orchestrator-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx # or your specific ingress class
+    nginx.ingress.kubernetes.io/ssl-redirect: "true" # forces HTTPS
+spec:
+  tls:
+    - hosts:
+        - droplet.kubertestingayush.xyz
+      secretName: my-tls-secret
+  rules:
+    - host: droplet.kubertestingayush.xyz
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: orchestrator-service
+                port:
+                  number: 80

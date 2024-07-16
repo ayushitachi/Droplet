@@ -79,8 +79,16 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: service_name
+  annotations:
+    kubernetes.io/ingress.class: nginx # or your specific ingress class
+    nginx.ingress.kubernetes.io/ssl-redirect: "true" # forces HTTPS
 spec:
   ingressClassName: nginx
+  tls:
+    - hosts:
+        - service_name.kubertestingayush.xyz
+        - service_name.prac.kubertestingayush.xyz
+      secretName: my-tls-secret
   rules:
     - host: service_name.kubertestingayush.xyz
       http:
