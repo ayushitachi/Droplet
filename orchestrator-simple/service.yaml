@@ -87,8 +87,10 @@ spec:
   tls:
     - hosts:
         - service_name.kubertestingayush.xyz
-        - service_name.prac.kubertestingayush.xyz
       secretName: my-tls-secret
+    - hosts:
+        - service_name.ayush.buzz
+      secretName: my-tls-secret2
   rules:
     - host: service_name.kubertestingayush.xyz
       http:
@@ -100,7 +102,7 @@ spec:
                 name: service_name
                 port:
                   number: 3001
-    - host: service_name.prac.kubertestingayush.xyz
+    - host: service_name.ayush.buzz
       http:
         paths:
           - path: /
