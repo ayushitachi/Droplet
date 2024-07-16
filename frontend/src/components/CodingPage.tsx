@@ -12,7 +12,7 @@ function useSocket(replId: string) {
   const [socket, setSocket] = useState<Socket | null>(null);
 
   useEffect(() => {
-    const newSocket = io(`ws://${replId}.kubertestingayush.xyz`);
+    const newSocket = io(`wss://${replId}.kubertestingayush.xyz`);
     setSocket(newSocket);
 
     return () => {
