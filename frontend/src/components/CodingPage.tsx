@@ -8,11 +8,6 @@ import { Output } from "./Output";
 import { TerminalComponent as Terminal } from "./Terminal";
 import axios from "axios";
 import { Button } from "./ui/button";
-import {
-  ResizableHandle,
-  ResizablePanel,
-  ResizablePanelGroup,
-} from "@/components/ui/resizable";
 
 function useSocket(replId: string) {
   const [socket, setSocket] = useState<Socket | null>(null);
@@ -35,11 +30,11 @@ const Container = styled.div`
   width: 100%;
 `;
 
-const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: flex-end; /* Aligns children (button) to the right */
-  padding: 10px; /* Adds some space around the button */
-`;
+// const ButtonContainer = styled.div`
+//   display: flex;
+//   justify-content: flex-end; /* Aligns children (button) to the right */
+//   padding: 10px; /* Adds some space around the button */
+// `;
 
 const Workspace = styled.div`
   display: flex;
