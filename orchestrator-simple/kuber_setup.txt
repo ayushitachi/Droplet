@@ -1,0 +1,11 @@
+1 : install ingress using the yaml file and create namespace for it 
+2 : run orchestrator service and ingress for it 
+3 : create a secret file for env of R2 credentials 
+4 : setup ssl for all domains and create secrets for them likewise 
+5 : Confgure RBAC rules so that runner service and orchestrator create and delete resources in k8
+6 : set external ip in domain records 
+7 : carefully configure all domains 
+   deploy.domain -> frontend 
+   droplet.domain -> orchestrator service 
+   service_name.domain -> runner service  port = 3001 websocket connections
+   service_name.anotherDomain -> output of runer service port 3000

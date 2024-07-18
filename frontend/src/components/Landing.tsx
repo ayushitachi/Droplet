@@ -129,9 +129,9 @@ export const Landing = () => {
                   </SelectTrigger>
                   <SelectContent position="popper">
                     <SelectItem value="node-js">Node.js</SelectItem>
-                    <SelectItem value="sveltekit">SvelteKit</SelectItem>
-                    <SelectItem value="astro">Astro</SelectItem>
-                    <SelectItem value="nuxt">Nuxt.js</SelectItem>
+                    <SelectItem value="react">React</SelectItem>
+                    {/* <SelectItem value="astro">Astro</SelectItem>
+                    <SelectItem value="nuxt">Nuxt.js</SelectItem> */}
                   </SelectContent>
                 </Select>
               </div>
