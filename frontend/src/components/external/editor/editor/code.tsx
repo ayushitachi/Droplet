@@ -22,7 +22,7 @@ export const Code = ({
   else if (language === "py") language = "python";
 
   function debounce(func: (value: string | undefined) => void, wait: number) {
-    let timeout: number;
+    let timeout: any;
     return (value: string) => {
       clearTimeout(timeout);
       timeout = setTimeout(() => {
@@ -61,7 +61,8 @@ export const Code = ({
 
   return (
     <Editor
-      height="100vh"
+      className="border rounded-lg min-w-[50vw]"
+      height="88vh"
       language={language}
       value={code}
       theme="vs-dark"

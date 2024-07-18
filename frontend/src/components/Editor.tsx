@@ -9,6 +9,11 @@ import {
 } from "./external/editor/utils/file-manager";
 import { FileTree } from "./external/editor/components/file-tree";
 import { Socket } from "socket.io-client";
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable";
 
 // credits - https://codesandbox.io/s/monaco-tree-pec7u
 export const Editor = ({
@@ -35,14 +40,21 @@ export const Editor = ({
   return (
     <div>
       <Main>
-        <Sidebar>
-          <FileTree
-            rootDir={rootDir}
-            selectedFile={selectedFile}
-            onSelect={onSelect}
-          />
-        </Sidebar>
-        <Code socket={socket} selectedFile={selectedFile} />
+        <ResizablePanelGroup direction="horizontal">
+          <ResizablePanel>
+            <Sidebar>
+              <FileTree
+                rootDir={rootDir}
+                selectedFile={selectedFile}
+                onSelect={onSelect}
+              />
+            </Sidebar>
+          </ResizablePanel>
+          <ResizableHandle withHandle />
+          <ResizablePanel defaultSize={80}>
+            <Code socket={socket} selectedFile={selectedFile} />
+          </ResizablePanel>
+        </ResizablePanelGroup>
       </Main>
     </div>
   );

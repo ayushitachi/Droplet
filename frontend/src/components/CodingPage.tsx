@@ -7,6 +7,12 @@ import styled from "@emotion/styled";
 import { Output } from "./Output";
 import { TerminalComponent as Terminal } from "./Terminal";
 import axios from "axios";
+import { Button } from "./ui/button";
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable";
 
 function useSocket(replId: string) {
   const [socket, setSocket] = useState<Socket | null>(null);
@@ -114,10 +120,21 @@ export const CodingPagePostPodCreation = () => {
   }
 
   return (
-    <Container>
-      <ButtonContainer>
-        <button onClick={() => setShowOutput(!showOutput)}>See output</button>
-      </ButtonContainer>
+    <Container className="no-scrollbar">
+      <div className="flex">
+        <div className="flex grow items-center justify-center p-2">
+          <Button onClick={() => setShowOutput(!showOutput)}>See output</Button>
+        </div>
+
+        <Button
+          size="sm"
+          onClick={() => window.open(`https://${replId}.ayush.buzz`, "_blank")}
+          className="mt-3"
+          variant="link"
+        >
+          {showOutput && " Open in new tab"}
+        </Button>
+      </div>
       <Workspace>
         <LeftPanel>
           <Editor

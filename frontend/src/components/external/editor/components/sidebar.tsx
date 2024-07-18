@@ -2,12 +2,11 @@ import { ReactNode } from "react";
 import styled from "@emotion/styled";
 
 export const Sidebar = ({ children }: { children: ReactNode }) => {
-  return <Aside>{children}</Aside>;
+  return <Aside className="bg-card min-w-[200px]">{children}</Aside>;
 };
 
 const Aside = styled.aside`
-  width: 250px;
-  height: 100vh;
+  height: 88vh;
   border-right: 2px solid;
   border-color: #242424;
   padding-top: 3px;

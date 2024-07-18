@@ -55,7 +55,8 @@ export const TerminalComponent = ({ socket }: { socket: Socket }) => {
 
   return (
     <div
-      style={{ width: "40vw", height: "400px", textAlign: "left" }}
+      className="no-scrollbar"
+      style={{ width: "100%", height: "350px", textAlign: "left" }}
       ref={terminalRef}
     ></div>
   );
