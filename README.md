@@ -48,17 +48,9 @@ Acts as an internal load balancer, facilitating communication between pods.
 𝟕. 𝐒𝟑 𝐈𝐧𝐭𝐞𝐠𝐫𝐚𝐭𝐢𝐨𝐧:\
 Persists user changes by copying from '/base to /code/userid'.
 
-https://github.com/user-attachments/assets/710d7622-b1c1-418e-92b8-388a8b4e0fb6
-
-
-
 𝟖. 𝐖𝐞𝐛𝐒𝐨𝐜𝐤𝐞𝐭 𝐂𝐨𝐧𝐧𝐞𝐜𝐭𝐢𝐨𝐧:\
 Enables real-time communication between the front-end and the Runner Service Pod.
 
-![droplet design](
-
-https://github.com/user-attachments/assets/f72b9835-bc6e-49ce-b9d5-7870bebd75b7
-
-https://github.com/user-attachments/assets/e2d8b53a-9f69-4add-9aa4-296c6331144a)
+![droplet design](https://github.com/user-attachments/assets/e2d8b53a-9f69-4add-9aa4-296c6331144a)
 
 
